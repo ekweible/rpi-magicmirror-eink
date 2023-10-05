@@ -142,10 +142,10 @@ class EPD:
         self.digital_write(self.reset_pin, GPIO.LOW)         # module reset
         self.delay_ms(200)
         self.digital_write(self.reset_pin, GPIO.HIGH)
-        self.delay_ms(200)    
+        self.delay_ms(200)
 
     def get_frame_buffer(self, image):
-        buf = [0xFF] * (self.width * self.height / 8)
+        buf = [0xFF] * (self.width * self.height // 8)
         # Set buffer to value of Python Imaging Library image.
         # Image must be in mode L.
         image_grayscale = image.convert('1')
@@ -175,7 +175,7 @@ class EPD:
                     temp3 = 0x00                #black
                 else:
                     temp3 = 0x03                #white
-					
+
                 temp3 = (temp3 << 4) & 0xFF
                 temp1 = (temp1 << 1) & 0xFF
                 temp2 = (temp2 << 1) & 0xFF
@@ -201,4 +201,3 @@ class EPD:
         self.send_data(0xa5)
 
 ### END OF FILE ###
-

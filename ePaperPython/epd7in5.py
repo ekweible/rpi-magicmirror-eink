@@ -153,10 +153,10 @@ class EPD:
         self.digital_write(self.reset_pin, GPIO.LOW)         # module reset
         self.delay_ms(200)
         self.digital_write(self.reset_pin, GPIO.HIGH)
-        self.delay_ms(200)    
+        self.delay_ms(200)
 
     def get_frame_buffer(self, image):
-        buf = [0x00] * (self.width * self.height / 8)
+        buf = [0x00] * (self.width * self.height // 8)
         # Set buffer to value of Python Imaging Library image.
         # Image must be in mode 1.
         image_monocolor = image.convert('1')
@@ -204,4 +204,3 @@ class EPD:
         self.send_data(0xa5)
 
 ### END OF FILE ###
-

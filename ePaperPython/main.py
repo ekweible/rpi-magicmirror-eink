@@ -24,7 +24,7 @@
  # THE SOFTWARE.
  ##
 
-import epd7in5
+import epd7in5b_V2
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
@@ -34,7 +34,7 @@ EPD_WIDTH = 640
 EPD_HEIGHT = 384
 
 def main():
-    epd = epd7in5.EPD()
+    epd = epd7in5b_V2.EPD()
     epd.init()
 
     # For simplicity, the arguments are explicit numerical coordinates

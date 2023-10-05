@@ -51,7 +51,7 @@ def main():
 
     image = Image.open('screenshot.png')
     red = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
-    epd.display(epd.getbuffer(image, red))
+    epd.display(epd.getbuffer(image), epd.getbuffer(red))
 
     # You can get frame buffer from an image or import the buffer directly:
     #epd.display_frame(imagedata.MONOCOLOR_BITMAP)
